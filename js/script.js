@@ -23,11 +23,13 @@ createApp({
         },
         nextClick() {
             if (this.activeIndexSlides < slides.length - 1) {
-                this.prevClickactiveIndexSlides++;
+                this.activeIndexSlides++;
             } else {
-                this.addEventListener = 0;
+                this.activeIndexSlides = 0;
             }
-
+        },
+        goToSlide(index){
+            this.activeIndexSlides = index;
         },
 
     },
