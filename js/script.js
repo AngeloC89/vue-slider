@@ -34,6 +34,7 @@ createApp({
 
     },
     mounted() {
+        setInterval(this.nextClick,2000)
 
 
     },
