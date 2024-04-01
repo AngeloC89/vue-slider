@@ -8,7 +8,7 @@ createApp({
         return {
             slides,
             activeIndexSlides: 0,
-
+            
 
         }
     },
@@ -19,7 +19,6 @@ createApp({
             } else {
                 this.activeIndexSlides = slides.length - 1;
             }
-
         },
         nextClick() {
             if (this.activeIndexSlides < slides.length - 1) {
@@ -28,14 +27,18 @@ createApp({
                 this.activeIndexSlides = 0;
             }
         },
-        goToSlide(index){
+        goToSlide(index) {
             this.activeIndexSlides = index;
         },
+        stop() {
 
+            this.activeSlide = clearInterval(this.activeSlide)
+        },
+        play() {
+            this.activeSlide = setInterval(this.nextClick, 3000)
+        }
     },
-    mounted() {
-        setInterval(this.nextClick,2000)
-
-
+    mounted() {      
+            this.activeSlide = setInterval(this.nextClick, 3000)       
     },
 }).mount('#app');
