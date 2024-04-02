@@ -8,6 +8,7 @@ createApp({
         return {
             slides,
             activeIndexSlides: 0,
+            activeSlide: null,
             
 
         }
@@ -30,15 +31,16 @@ createApp({
         goToSlide(index) {
             this.activeIndexSlides = index;
         },
-        stop() {
-
-            this.activeSlide = clearInterval(this.activeSlide)
-        },
         play() {
-            this.activeSlide = setInterval(this.nextClick, 3000)
-        }
+            this.activeSlide = setInterval(this.nextClick, 1000)
+        },
+        stop() {
+           clearInterval(this.activeSlide);
+           this.activeSlide = null;
+        },
+        
     },
     mounted() {      
-            this.activeSlide = setInterval(this.nextClick, 3000)       
+            this.play()     
     },
 }).mount('#app');
